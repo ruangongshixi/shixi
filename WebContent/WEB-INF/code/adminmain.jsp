@@ -30,7 +30,7 @@
 			<td><%=ac.getBeizhu() %></td>
 			<td>
 				<a href="/tuimian/Deleteactivity?id=<%=id %>" >删除</a>
-				<a href="#">修改</a>
+				<a href="/tuimian/Viewlist?id=<%=id%>">资格审查</a>
 			</td>
 		</tr>
 		<%} %>

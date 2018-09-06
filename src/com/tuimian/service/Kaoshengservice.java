@@ -62,7 +62,23 @@ public class Kaoshengservice {
 	public ArrayList<Status> viewstatus(String id){
 		ArrayList<Status> result=new ArrayList<>();
 		conn=Db.get_connection();
-		ps=conn.prepareStatement("")
+		try {
+			ps=conn.prepareStatement("select name,status from activity,list where id=a_id and k_id=?");
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				Status s=new Status();
+				s.setActivityName(rs.getString(1));
+				s.setStatus(rs.getString(2));
+				result.add(s);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 	

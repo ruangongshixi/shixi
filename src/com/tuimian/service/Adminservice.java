@@ -11,6 +11,7 @@ import org.omg.CORBA.Request;
 import com.tuimian.db.Db;
 import com.tuimian.domain.Activity;
 import com.tuimian.domain.Admin;
+import com.tuimian.domain.Checkinfo;
 
 public class Adminservice {
 	Connection conn=null;
@@ -96,6 +97,56 @@ public class Adminservice {
 		try {
 			ps=conn.prepareStatement("delete from activity where id=?");
 			ps.setInt(1, id);
+			if(ps.executeUpdate()>0) {
+				result=true;
+			}
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	//审查考生资格
+	public ArrayList<Checkinfo> CheckInfo(int a_id){
+		ArrayList<Checkinfo> result=new ArrayList<>();
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("select kaosheng.id,kaosheng.name,college,major,kaosheng.teacher,status "
+					+ "from kaosheng,activity,list where activity.id=? "
+					+ "and activity.id=list.a_id and kaosheng.id=list.k_id and status='待审'");
+			ps.setInt(1, a_id);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				Checkinfo c=new Checkinfo();
+				c.setId(rs.getString(1));
+				c.setName(rs.getString(2));
+				c.setColloge(rs.getString(3));
+				c.setMajor(rs.getString(4));
+				c.setTeacher(rs.getString(5));
+				c.setStatus(rs.getString(6));
+				result.add(c);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	//修改考生的申请状态
+	public boolean changeStatus(String a_id,String k_id,String status) {
+		boolean result=false;
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("update list set status=? where a_id=? and k_id=?");
+			ps.setString(1, status);
+			ps.setString(2, a_id);
+			ps.setString(3, k_id);
 			if(ps.executeUpdate()>0) {
 				result=true;
 			}

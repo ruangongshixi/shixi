@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tuimian.domain.List;
-import com.tuimian.domain.Status;
-import com.tuimian.service.Kaoshengservice;
+import com.tuimian.domain.Checkinfo;
+import com.tuimian.service.Adminservice;
 
 /**
- * Servlet implementation class Checkstatus
+ * Servlet implementation class Viewlist
  */
-@WebServlet("/Checkstatus")
-public class Checkstatus extends HttpServlet {
+@WebServlet("/Viewlist")
+public class Viewlist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Checkstatus() {
+    public Viewlist() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +32,11 @@ public class Checkstatus extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String k_id=request.getParameter("k_id");
-		ArrayList<Status> s=new ArrayList<>();
-		Kaoshengservice ks=new Kaoshengservice();
-		s=ks.viewstatus(k_id);
-		request.setAttribute("k_id", k_id);
-		request.setAttribute("s", s);
-		request.getRequestDispatcher("/WEB-INF/code/statusView.jsp").forward(request, response);
+		String a_id=request.getParameter("id");
+		Adminservice as=new Adminservice();
+		ArrayList<Checkinfo> c=as.CheckInfo(Integer.parseInt(a_id));
+		request.setAttribute("Checkinfo", c);
+		request.getRequestDispatcher("/WEB-INF/code/checkInfo.jsp?a_id="+a_id).forward(request, response);
 	}
 
 	/**

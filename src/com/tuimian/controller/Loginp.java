@@ -48,7 +48,7 @@ public class Loginp extends HttpServlet {
 			if(adminservice.checkAdmin(admin)) {
 				ArrayList<Activity> ac=adminservice.getActivity();
 				request.setAttribute("activity", ac);
-				request.getRequestDispatcher("/WEB-INF/code/adminmain.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/code/adminNavigation.jsp").forward(request, response);
 			}else {
 				request.getRequestDispatcher("/WEB-INF/code/error.jsp?error=id或者密码输入错误，请重新输入！").forward(request, response);
 			}

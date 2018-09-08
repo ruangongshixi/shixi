@@ -7,14 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="。/lib/bootstrap/css/bootstrap.min.css" >
+ <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+ <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>报名状态查询</title>
 </head>
 <body>
+	<div class="container">
+	<div style="height:100px"></div>
 	<%
 		String k_id=(String)request.getAttribute("k_id");
 		ArrayList s=(ArrayList)request.getAttribute("s");
 	%>
-	<table border="1px" cellpadding="0px" cellspacing="0px">
+	<table class="table table-striped table-hover">
 		<caption>活动列表</caption>
 		<tr><th>活动名称</th><th>状态</th></tr>
 	<%
@@ -29,5 +35,6 @@
 	<%} %>
 	</table>
 	<a href="/tuimian/GokaoshengMain?k_id=<%=k_id%>">返回主页</a>
+	</div>
 </body>
 </html>

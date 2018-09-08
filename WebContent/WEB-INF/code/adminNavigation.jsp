@@ -4,19 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<link rel="stylesheet" href="WebContent/WEB-INF/lib/css/top.css"> 
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>添加活动信息</title>
-<style type="text/css">
-	.top
-</style>
+	<style type="text/css">
+        html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
+        .bg {display: table;width: 100%;height: 100%;padding: 100px 0;text-align: center;color: #fff;background: url(./image/index.jpg) no-repeat bottom center;background-color: #000;background-size: cover;}
+        .my-navbar {padding:20px 0;transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;}
+        .my-navbar a{background:transparent !important;color:#fff !important}
+        .my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0}
+        .my-navbar a {transition: color 0.5s ease-in-out;}/*-webkit-transition ;-moz-transition*/
+        .top-nav {padding:0;background:#000;}
+        button.navbar-toggle {background-color:#fbfbfb;}/*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/
+        button.navbar-toggle > span.icon-bar {background-color:#dedede}
+    </style>
+<title>管理员导航</title>
 </head>
 <body>
-	<div class="container" >
-		<div style="height:150px">
-			<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -42,50 +47,12 @@
             </div>
         </div>
     </nav>
-		</div>
-		<div class="row">
-		<div class="col-md-3">
-			
-		</div>
-		<div class="col-md-6">
-	<form action="/tuimian/AddActivity" role="form">
-		<table class="table">
-			<tr>
-				<td>活动名称</td>
-				<td><input type="text" name="name" class="form-control" placeholder="活动名称"></td>
-			</tr>
-			<tr>
-				<td>开始时间(2018-9-5)</td>
-				<td><input type="text" name="start_time" class="form-control" placeholder="开始时间"></td>
-			</tr>
-			<tr>
-				<td>结束时间</td>
-				<td><input type="text" name="end_time" class="form-control" placeholder="结束时间"></td>
-			</tr>
-			<tr>
-				<td>联系人</td>
-				<td><input type="text" name="holder" class="form-control" placeholder="联系人"></td>
-			</tr>
-			<tr>
-				<td>联系电话</td>
-				<td><input type="text" name="contact" class="form-control" placeholder="联系电话"></td>
-			</tr>
-			<tr>
-				<td>备注（不为空）</td>
-				<td><input type="text" name="beizhu" class="form-control" placeholder="备注"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="提交"></td>
-				<td><input type="reset" value="重置"></td>
-			</tr>
-		</table>
-		<input type="hidden" name="type" value="2">
-	</form>
-	</div>
-	<div class="col-md-3">
-			
-		</div>
-	</div>
-	</div>
+     <div class="bg"></div>
+    <br /><br /><br /><br /><br /><br /><br /></p>
+    <script>
+        $(window).scroll(function () {
+            if ($(".navbar").offset().top > 50) {$(".navbar-fixed-top").addClass("top-nav");
+            }else {$(".navbar-fixed-top").removeClass("top-nav");}
+        })</script>
 </body>
 </html>

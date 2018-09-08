@@ -12,6 +12,10 @@
 </head>
 <body>
 	<div class="container">
+	<div style="height: 150px"></div>
+	<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
 	<form action="/tuimian/Register" role="form">
 		<table class="table" border="0px">
 			<tr>
@@ -45,6 +49,7 @@
 		</table>
 		<input type="hidden" name="type" value="2">
 	</form>
+	</div>
 	</div>
 </body>
 </html>

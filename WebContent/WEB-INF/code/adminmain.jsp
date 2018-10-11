@@ -5,10 +5,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="。/lib/bootstrap/css/bootstrap.min.css" >
- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
- <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>管理员主页</title>
 </head>
 <body>
@@ -18,34 +22,36 @@
 	%>
 	<div class="container">
 	<div style="height:150px">
-			<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#example-navbar-collapse">
-                    <span class="sr-only">切换导航</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/tuimian/Gohome">Home</a>
-            </div>
-            <div class="collapse navbar-collapse" id="example-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/tuimian/AddActivity?type=1">添加活动</a></li>
-                    <li><a href="/tuimian/Gomain">删除活动</a></li>
-                    <li>
-                        <a href="/tuimian/Gomain">资格审核</a>
+		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	        <div class="container-fluid">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse"
+	                        data-target="#example-navbar-collapse">
+	                    <span class="sr-only">切换导航</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="/tuimian/Gohome">Home</a>
+	            </div>
+	            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+	                <ul class="nav navbar-nav">
+	                    <li class="active"><a href="/tuimian/AddActivity?type=1">添加活动</a></li>
+	                    <li><a href="/tuimian/Gomain">删除活动</a></li>
+	                    <li>
+	                        <a href="/tuimian/Gomain">资格审核</a>
+	                    </li>
+	                    <li>
+                    	<a href="/tuimian/Addscore?type=1">上传分数</a>
                     </li>
-                    <li>
-                    	<a href="/tuimian/Tuichu">安全退出</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-    </nav>
-		</div>
+	                    <li>
+	                    	<a href="/tuimian/Tuichu">安全退出</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+    	</nav>
+	</div>
 	<div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-10">

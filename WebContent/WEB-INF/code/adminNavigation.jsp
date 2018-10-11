@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
         html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
         .bg {display: table;width: 100%;height: 100%;padding: 100px 0;text-align: center;color: #fff;background: url(./image/index.jpg) no-repeat bottom center;background-color: #000;background-size: cover;}
@@ -39,6 +44,9 @@
                     <li><a href="/tuimian/Gomain">删除活动</a></li>
                     <li>
                         <a href="/tuimian/Gomain">资格审核</a>
+                    </li>
+                    <li>
+                    	<a href="/tuimian/Addscore?type=1">上传分数</a>
                     </li>
                     <li>
                     	<a href="/tuimian/Tuichu">安全退出</a>

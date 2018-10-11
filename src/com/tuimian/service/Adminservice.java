@@ -11,6 +11,7 @@ import org.omg.CORBA.Request;
 import com.tuimian.db.Db;
 import com.tuimian.domain.Activity;
 import com.tuimian.domain.Admin;
+import com.tuimian.domain.Adminscore;
 import com.tuimian.domain.Checkinfo;
 
 public class Adminservice {
@@ -157,6 +158,51 @@ public class Adminservice {
 			e.printStackTrace();
 		}
 		
+		return result;
+	}
+	//获取活动的学生成绩
+	public ArrayList<Adminscore> getscore(String a_id){
+		ArrayList<Adminscore> a=new ArrayList<>();
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("select k_id,name,score from list,kaosheng where a_id=? and k_id=id and score=0");
+			ps.setInt(1, Integer.parseInt(a_id));
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				Adminscore a1=new Adminscore();
+				a1.setA_id(a_id);
+				a1.setK_id(rs.getString(1));
+				a1.setName(rs.getString(2));
+				a1.setScore(rs.getDouble(3));
+				a.add(a1);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
+	}
+	//添加学生成绩
+	public boolean addscore(String a_id,String k_id,double score) {
+		boolean result=false;
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("update list set score=? where a_id=? and k_id=?");
+			ps.setDouble(1, score);
+			ps.setString(2, a_id);
+			ps.setString(3, k_id);
+			if(ps.executeUpdate()>0) {
+				result=true;
+			}
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 }

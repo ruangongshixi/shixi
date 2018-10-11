@@ -82,8 +82,52 @@ public class Kaoshengservice {
 		return result;
 	}
 	
+	//获取考生信息
+	public Kaosheng getinfo(String k_id) {
+		Kaosheng k=new Kaosheng();
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("select * from kaosheng where id=?");
+			ps.setString(1, k_id);
+			rs=ps.executeQuery();
+			rs.next();
+			k.setId(rs.getString(1));
+			k.setName(rs.getString(2));
+			k.setCollege(rs.getString(3));
+			k.setMajor(rs.getString(4));
+			k.setTeacher(rs.getString(5));
+			k.setPassword(rs.getString(6));
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return k;
+	}
 	
-	
+	//更新考生信息
+	public boolean changeinfo(Kaosheng k) {
+		conn=Db.get_connection();
+		try {
+			ps=conn.prepareStatement("update kaosheng set name=?,college=?,major=?,teacher=?,password=? where id=?");
+			ps.setString(1, k.getName());
+			ps.setString(2, k.getCollege());
+			ps.setString(3, k.getMajor());
+			ps.setString(4, k.getTeacher());
+			ps.setString(5, k.getPassword());
+			ps.setString(6, k.getId());
+			ps.executeUpdate();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			return false;
+		}
+		return true;
+	}
 	
 	
 	

@@ -1,3 +1,5 @@
+<%@page import="com.tuimian.domain.Activity"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,36 +14,31 @@
  
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>管理员登录</title>
+<title>查看</title>
 </head>
 <body>
+	<%
+		ArrayList activity=(ArrayList) request.getAttribute("activity"); 
+	%>
 	<div class="container">
-	<div class="row" style="height:150px">
+	<div style="height:100px"></div>
+	<table class="table table-striped table-hover">
+		<caption>活动列表</caption>
+		<tr><th>活动名称</th><th>操作</th></tr>
+		<%for(int i=0;i<activity.size();i++){ 
+			Activity ac=(Activity)activity.get(i);
+			String id=ac.getId()+"";
+		%>
 		
+		<tr>
+			<td><%=ac.getName() %></td>
+			<td>
+				<button type="button" class="btn btn-success"><a href="/tuimian/Addscore?a_id=<%=id %>&type=2" >上传成绩</a></button>
+			</td>
+		</tr>
+		<%} %>
+	</table>
+	<a href="/tuimian/Gomain">返回主页</a>
 	</div>
-	<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-	<form action="/tuimian/Loginp?t=admin" role="form" name="form1" onsubmit="return myCheck()">
-		<table class="table">
-			<tr>
-				<td>id</td>
-				<td><input type="text" name="id" class="form-control" placeholder="请输入账号"></td>
-			</tr>
-			<tr>
-				<td>密码</td>
-				<td><input type="password" name="password" class="form-control" placeholder="请输入密码"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="提交"></td>
-				<td><input type="reset" value="重置"></td>
-			</tr>
-		</table>
-		<input type="hidden" name="t" value="admin">
-	</form>
-	</div>
-	</div>
-	</div>
-	
 </body>
 </html>

@@ -4,14 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<link rel="stylesheet" href="WebContent/WEB-INF/lib/css/top.css"> 
-	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>添加活动信息</title>
 <style type="text/css">
 	.top
 </style>
+<script type="text/javascript" src="./js/test.js"></script>
 </head>
 <body>
 	<div class="container" >
@@ -36,6 +41,9 @@
                         <a href="/tuimian/Gomain">资格审核</a>
                     </li>
                     <li>
+                    	<a href="/tuimian/Addscore?type=1">上传分数</a>
+                    </li>
+                    <li>
                     	<a href="/tuimian/Tuichu">安全退出</a>
                     </li>
                 </ul>
@@ -48,7 +56,7 @@
 			
 		</div>
 		<div class="col-md-6">
-	<form action="/tuimian/AddActivity" role="form">
+	<form action="/tuimian/AddActivity" role="form" name="form1" onsubmit="return checkActivity()">
 		<table class="table">
 			<tr>
 				<td>活动名称</td>

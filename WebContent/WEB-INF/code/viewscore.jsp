@@ -1,3 +1,5 @@
+<%@page import="com.tuimian.domain.Score"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,36 +14,30 @@
  
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>管理员登录</title>
+<title>成绩查看</title>
 </head>
 <body>
 	<div class="container">
-	<div class="row" style="height:150px">
+		<div style="height:100px"></div>
+		<%
+			String k_id=(String)request.getParameter("k_id");
+			ArrayList s=(ArrayList)request.getAttribute("s");
+		%>
+		<table class="table table-striped table-hover">
+			<caption>活动列表</caption>
+			<tr><th>活动名称</th><th>成绩</th></tr>
+		<%
+			for(int i=0;i<s.size();i++){
+				Score s1=(Score)s.get(i);
+		%>
+			<tr>
+				<td><%=s1.getName() %></td>
+				<td><%=s1.getScore() %></td>
+			</tr>
 		
-	</div>
-	<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-	<form action="/tuimian/Loginp?t=admin" role="form" name="form1" onsubmit="return myCheck()">
-		<table class="table">
-			<tr>
-				<td>id</td>
-				<td><input type="text" name="id" class="form-control" placeholder="请输入账号"></td>
-			</tr>
-			<tr>
-				<td>密码</td>
-				<td><input type="password" name="password" class="form-control" placeholder="请输入密码"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="提交"></td>
-				<td><input type="reset" value="重置"></td>
-			</tr>
+		<%} %>
 		</table>
-		<input type="hidden" name="t" value="admin">
-	</form>
+		<a href="/tuimian/GokaoshengMain?k_id=<%=k_id%>">返回主页</a>
 	</div>
-	</div>
-	</div>
-	
 </body>
 </html>

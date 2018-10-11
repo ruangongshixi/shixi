@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
- <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>推免系统主页</title>
 <style type="text/css">
 	body{
@@ -27,7 +32,7 @@
 	<div class="row" >
 	<div class="col-md-1"></div>
 	<div class="col-md-9"><img alt="logo" src="./image/logo.jpg" class="img">
-	<font style="font-size: 60px;font-family: KaiTi">西安电子科技大学推免系统</font></div>
+	<font style="font-size: 60px;font-family: KaiTi">推免系统</font></div>
 	<div class="dropdown col-md-2" >
 	<button type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
 			data-toggle="dropdown">
